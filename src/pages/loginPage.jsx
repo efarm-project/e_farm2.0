@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./styles/loginpage.css";
 
 const LoginPage = () => {
-    const [email, setEmail] = useState('');
+    const [PhoneNumber, setPhonenumber] = useState('');
     const [password, setPassword] = useState('');
 
     return (
@@ -11,14 +11,14 @@ const LoginPage = () => {
                 <h2 className="title">Welcome Back</h2>
                 <p className="subtitle">Sign in to your account</p>
 
-                <label className="label" htmlFor="email">Email</label>
+                <label className="label" htmlFor="phonenumber">Phone number. </label>
                 <input
-                    type="email"
-                    id="email"
+                    type="phonenumber"
+                    id="Phone Number"
                     className="inputField"
-                    placeholder="Email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Phone number"
+                    value={PhoneNumber}
+                    onChange={(e) => setPhonenumber(e.target.value)}
                 />
 
                 <label className="label" htmlFor="password">Password</label>
