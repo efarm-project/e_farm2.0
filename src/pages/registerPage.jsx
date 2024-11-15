@@ -72,6 +72,3 @@ const Registerpage = () => {
 };
 
 export default Registerpage;
-
-
-
