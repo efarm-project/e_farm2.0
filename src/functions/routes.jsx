@@ -31,5 +31,12 @@ export const LoginRoute = () => {
 }
 
 
+export const ResetPass = () => {
+    return(
+        window.location.href = '/resetpasswd'
+    )
+}
+
+
 
 

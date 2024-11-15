@@ -6,7 +6,7 @@ import EdResource from './pages/educationalResource';
 import JobMatching from './pages/jobmatching';
 import  Registerpage from './pages/registerPage';
 import LoginPage from './pages/loginPage';
-
+import ResetPass from './pages/resetpass';
 function App() {
   return (
     <Router>
@@ -16,6 +16,7 @@ function App() {
         <Route path='/jobmatching' element={<JobMatching />} />
         <Route path ='/register' element={< Registerpage />} />
         <Route path ='/login' element={<LoginPage/>}/>
+        <Route path ='/resetpasswd' element ={<ResetPass/>} />
       </Routes>
     </Router>
   );

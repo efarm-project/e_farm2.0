@@ -34,7 +34,7 @@ const LoginPage = () => {
                 <button className="loginButton">Sign In</button>
 
                 <p className="forgotPassword">
-                    <a href="#" className="forgotPasswordLink">Forgot Password?</a>
+                    <a href="/resetpasswd" className="forgotPasswordLink">Forgot Password?</a>
                 </p>
 
                 <p className="registerText">
