@@ -1,0 +1,39 @@
+.dashboard-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #dcfce7;
+  }
+  
+  .card-header {
+    margin-bottom: 1rem;
+  }
+  
+  .card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #15803d;
+  }
+  
+  .item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .item-card {
+    padding: 1rem;
+    border: 1px solid #dcfce7;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .item-card:hover {
+    transform: scale(1.02);
+  }
+  

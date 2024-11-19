@@ -1,0 +1,25 @@
+/* Dashboard.css */
+.dashboard-container {
+    min-height: 100vh;
+    background-color: #f9fafb;
+    padding: 2rem;
+    position: relative;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: #16a34a;
+    font-size: 0.875rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+  

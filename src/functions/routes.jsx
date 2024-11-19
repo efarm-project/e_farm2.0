@@ -31,5 +31,19 @@ export const LoginRoute = () => {
 }
 
 
-
+export const FarmerDashRoute = () => {
+    return(
+        window.location.href = '/dashboard/farmer'
+    )
+}
+export const VendorDashRoute = () => {
+    return(
+        window.location.href = '/dashboard/vendor'
+    )
+}
+export const WorkerDashRoute = () => {
+    return(
+        window.location.href = '/dashboard/worker'
+    )
+}
 

@@ -51,7 +51,7 @@ const Registerpage = () => {
   return (
     <div className="registerPage">
       <div className="inputContainer">
-        <h2 className="title">Join EcoFarm Community</h2>
+        <h2 className="title">Join E-Farm Community</h2>
         <p className="subtitle">Create an account to join our farming community</p>
 
         {error && <p className="errorText">{error}</p>}
@@ -99,7 +99,7 @@ const Registerpage = () => {
           onChange={(e) => setRole(e.target.value)}
         >
           <option value="Farmer">Farmer</option>
-          <option value="Jobseeker">Jobseeker</option>
+          <option value="jobSeeker">Jobseeker</option>
           <option value="Vendor">Vendor</option>
         </select>
 

@@ -6,6 +6,11 @@ import EdResource from './pages/educationalResource';
 import JobMatching from './pages/jobmatching';
 import  Registerpage from './pages/registerPage';
 import LoginPage from './pages/loginPage';
+import Marketplace from './pages/marketPlace';
+import ResetPass from './pages/resetpass';
+import FarmerDashboard from './pages/dashboardpage';
+import VendorDashboard from './pages/dashboardvendor';
+import WorkerDashboard from './pages/dashboardworker';
 
 function App() {
   return (
@@ -16,6 +21,11 @@ function App() {
         <Route path='/jobmatching' element={<JobMatching />} />
         <Route path ='/register' element={< Registerpage />} />
         <Route path ='/login' element={<LoginPage/>}/>
+        <Route path ='/resetpasswd' element ={<ResetPass/>} />
+        <Route path ='/market' element ={<Marketplace/>} />
+        <Route path ='/dashboard/farmer' element={<FarmerDashboard/>}/>
+        <Route path ='/dashboard/vendor' element={<VendorDashboard/>}/>
+        <Route path ='/dashboard/worker' element={<WorkerDashboard/>}/>
       </Routes>
     </Router>
   );

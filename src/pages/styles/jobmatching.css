@@ -1,16 +1,17 @@
-.jobMatchingPage{
-    background-image: url('https://plus.unsplash.com/premium_photo-1664303346974-03b27da7dbb5?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+/* Overall page styling */
+.jobMatchingPage {
+    background-image: url('https://images.unsplash.com/photo-1529683976312-1f151299141d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
-}
-
-.jobMatchingPage {
+    min-height: 100vh; /* Ensures background covers full height */
+    display: flex;
+    flex-direction: column;
     font-family: Arial, sans-serif;
     padding: 20px;
     text-align: center;
 }
 
+/* Hero section styling */
 .jobMatchingHero {
     background-color: #476655c0;
     padding: 30px;
@@ -38,12 +39,23 @@
     border-radius: 5px;
 }
 
+.filterContainer {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Job listings section */
 .jobListings {
     margin-top: 20px;
     text-align: left;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 20px; /* Prevent overlap at bottom */
 }
 
 .jobListings h2 {
@@ -55,11 +67,11 @@
 /* Grid layout for job seekers */
 .jobList {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between grid items */
     width: 100%;
-    max-width: 1200px; /* Limit the width of the grid to avoid full-page expansion */
-    padding: 0;
+    max-width: 1200px; /* Limit grid width */
+    padding: 20px;
     margin: 0 auto; /* Center the grid */
 }
 
@@ -67,13 +79,14 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 15px;
-    background-color: #23c53c48;
+    background-color: #d9eedc93;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    backdrop-filter: blur(12px);
     align-items: center;
     text-align: center;
-    height: 100%;
+    min-height: 200px; /* Prevent cards from collapsing */
 }
 
 .profilePicture {
@@ -85,10 +98,9 @@
     border: 2px solid #4CAF50;
 }
 
-
 .jobCard h3 {
     font-size: 1.2rem;
-    color: wheat;
+    color: rgb(44, 41, 35);
     margin-bottom: 10px;
 }
 
@@ -98,10 +110,29 @@
     font-size: 0.9rem;
 }
 
+.jobCard span {
+    font-weight: bold;
+}
+
 .noResults {
     text-align: center;
     color: #150a68;
     font-size: 1rem;
+}
+
+/* Loading text styling */
+.loadingText {
+    color: #333;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Error message styling */
+.errorText {
+    color: red;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
 }
 
 /* Add responsiveness for small screens */

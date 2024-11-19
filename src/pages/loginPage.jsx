@@ -1,22 +1,26 @@
 import React, { useState } from "react";
 import "./styles/loginpage.css";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const LoginPage = () => {
-  const [phoneNumber, setPhonenumber] = useState('');
-  const [password, setPassword] = useState('');
-  const [role, setRole] = useState('farmer'); // Default role
-  const [error, setError] = useState('');
+  const [phoneNumber, setPhonenumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("farmer"); // Default role
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = async () => {
     setLoading(true);
-    setError('');
+    setError("");
 
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
-        method: 'POST',
+      const response = await fetch("http://localhost:4000/api/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           phonenumber: phoneNumber,
@@ -28,15 +32,37 @@ const LoginPage = () => {
       const data = await response.json();
 
       if (response.ok) {
-        alert('Login successful!');
-        console.log('Logged in user:', data);
-        // Redirect or perform further actions here
+        // Store the token in localStorage
+        localStorage.setItem("userToken", data.token);
+
+        // Redirect logic
+        const redirectTo = location.state?.redirectTo;
+        if (redirectTo) {
+          // If a redirect route is provided (e.g., from Marketplace)
+          navigate(redirectTo);
+        } else {
+          // Role-based redirection
+          switch (role) {
+            case "farmer":
+              navigate("/dashboard/farmer");
+              break;
+            case "vendor":
+              navigate("/dashboard/vendor");
+              break;
+            case "jobSeeker":
+              navigate("/dashboard/worker");
+              break;
+            default:
+              navigate("/");
+              break;
+          }
+        }
       } else {
-        setError(data.message || 'Login failed. Please try again.');
+        setError(data.message || "Login failed. Please try again.");
       }
     } catch (error) {
-      setError('An error occurred. Please try again.');
-      console.error('Login error:', error);
+      setError("An error occurred. Please try again.");
+      console.error("Login error:", error);
     } finally {
       setLoading(false);
     }
@@ -50,7 +76,9 @@ const LoginPage = () => {
 
         {error && <p className="errorText">{error}</p>}
 
-        <label className="label" htmlFor="phonenumber">Phone number</label>
+        <label className="label" htmlFor="phonenumber">
+          Phone number
+        </label>
         <input
           type="text"
           id="phonenumber"
@@ -60,7 +88,9 @@ const LoginPage = () => {
           onChange={(e) => setPhonenumber(e.target.value)}
         />
 
-        <label className="label" htmlFor="password">Password</label>
+        <label className="label" htmlFor="password">
+          Password
+        </label>
         <input
           type="password"
           id="password"
@@ -70,7 +100,9 @@ const LoginPage = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <label className="label" htmlFor="role">Role</label>
+        <label className="label" htmlFor="role">
+          Role
+        </label>
         <select
           id="role"
           className="inputField"
@@ -87,15 +119,20 @@ const LoginPage = () => {
           onClick={handleLogin}
           disabled={loading}
         >
-          {loading ? 'Signing In...' : 'Sign In'}
+          {loading ? "Signing In..." : "Sign In"}
         </button>
 
         <p className="forgotPassword">
-          <a href="#" className="forgotPasswordLink">Forgot Password?</a>
+          <a href="/resetpasswd" className="forgotPasswordLink">
+            Forgot Password?
+          </a>
         </p>
 
         <p className="registerText">
-          Don't have an account? <a href="/register" className="registerLink">Sign Up</a>
+          Don't have an account?{" "}
+          <a href="/register" className="registerLink">
+            Sign Up
+          </a>
         </p>
       </div>
     </div>
